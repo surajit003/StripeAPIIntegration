@@ -11,10 +11,13 @@ from stripe_app import payment
 @csrf_exempt
 @require_http_methods(["POST", ])
 def client_secret(request):
-    data = json.loads(request.body)
-    amount = data.get("amount")
-    currency = data.get("currency")
-    intent = payment.create_payment_intent(amount, currency)
+    try:
+        data = json.loads(request.body)
+        amount = data.get("amount")
+        currency = data.get("currency")
+        intent = payment.create_payment_intent(amount, currency)
+    except payment.PaymentIntentError as exc:
+        return JsonResponse({"error": str(exc)})
     return JsonResponse({"secret_key": intent.client_secret})
 
 
