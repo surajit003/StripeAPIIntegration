@@ -13,14 +13,21 @@
     </div>
 </form>
 <script type="application/javascript">
+    const chargeAmount = "{{ amount }}";
+    const organizationId = "{{ organization_id }}";
+    const chargeType = "{{ charge_type }}";
+
     (async () => {
-        const response = await fetch('/stripe/secret/', {
+        const response = await fetch('/stripe/payment/secret/', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({amount: 100, currency: 'USD'}) //hardcoded only to test
+                body: JSON.stringify({amount: chargeAmount, currency: 'USD',
+                    organization_id: organizationId,
+                    charge_type: chargeType
+                })
             }
         );
         const clientSecret = await response.json();
@@ -47,7 +54,7 @@
                 //`Elements` instance that was used to create the Payment Element
                 elements,
                 confirmParams: {
-                    return_url: '', //status-url
+                    return_url: '',
                 },
             });
 
@@ -65,7 +72,7 @@
         });
     })();
 
-    const stripe = Stripe(''); //secret key
+    const stripe = Stripe('');
 </script>
 </body>
 </html>

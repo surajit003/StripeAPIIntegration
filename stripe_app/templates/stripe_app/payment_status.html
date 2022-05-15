@@ -7,7 +7,7 @@
 <div id="message">
 </div>
 <script type="application/javascript">
-    const stripe = Stripe(''); //secret-key
+    const stripe = Stripe('');
     const clientSecret = new URLSearchParams(window.location.search).get(
         'payment_intent_client_secret'
     );
