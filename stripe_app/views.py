@@ -8,6 +8,11 @@ from django.views.decorators.http import require_http_methods
 from stripe_app import payment
 
 
+@require_http_methods(["GET", ])
+def organization_charge(request):
+    return render(request, "stripe_app/demo.html")
+
+
 @csrf_exempt
 @require_http_methods(["POST", ])
 def client_secret(request):
