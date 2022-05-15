@@ -8,6 +8,7 @@ class OrganizationAdmin(admin.ModelAdmin):
     list_display = ('name', 'org_id',)
 
 
-@admin.register(models.PaymentIntent)
+@admin.register(models.Payment)
 class PaymentAdmin(admin.ModelAdmin):
-    list_display = ('intent_id', 'charge_amount', "organization",)
+    list_display = ('transaction_id', 'charge_amount', "organization", "paid",)
+    readonly_fields = ("paid",)

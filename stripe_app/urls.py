@@ -2,9 +2,10 @@ from django.urls import path
 
 from stripe_app import views
 
+app_name = "stripe-app"
 urlpatterns = [
-    path("charge/<str:org_id>/", views.organization_charge, name="payment-charge-organization"),
-    path("secret/", views.client_secret, name="payment-intent-view"),
-    path("checkout/", views.checkout, name="payment-checkout"),
-    path("status/", views.payment_status, name="payment-status"),
+    path("organization/<str:org_id>/charge/", views.organization_onboarding_charge,
+         name="organization-onboarding-charge"),
+    path("payment/secret/", views.client_secret, name="payment-intent-view"),
+    path("payment/status/", views.payment_status, name="payment-status"),
 ]
