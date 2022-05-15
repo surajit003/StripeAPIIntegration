@@ -24,7 +24,8 @@
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({amount: chargeAmount, currency: 'USD',
+                body: JSON.stringify({
+                    amount: chargeAmount, currency: 'USD',
                     organization_id: organizationId,
                     charge_type: chargeType
                 })
