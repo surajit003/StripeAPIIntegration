@@ -33,9 +33,9 @@ def organization_onboarding_charge(request, org_id):
         if not payment.paid:
             amount = payment.charge_amount
             return render(request, "stripe_app/checkout.html", {"amount": amount,
-                                                                "organization_id": org_id,
-                                                                "charge_type": "ONBOARDING"
-                                                                })
+                                                                     "organization_id": org_id,
+                                                                     "charge_type": "ONBOARDING"
+                                                                     })
         else:
             return HttpResponse("Onboarding payment has already been made for this organization")
     else:
