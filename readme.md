@@ -1,4 +1,4 @@
-Use case
+#Use case
 
 An organization called Test Org comes to a property management company. The property management
 investigates the property and determines a rate and sends the organization a quotation.
@@ -6,7 +6,7 @@ Upon agreement, the property management Co sends a payment link for the organiza
 payment. The Organization makes the payment and a payment record is saved in the Database
 
 
-Endpoints
+#Endpoints
 
 1. Charge Url - /stripe/organization/<int:org_id>/charge/
 
@@ -27,7 +27,7 @@ This endpoint is the redirect url where stripe redirects after the payment is
 completed. The payment details in the database in updated after fetching
 more information from the payment intent and updated accordingly.
 
-Set Up:
+#Set Up:
 
 To run the application follow the following steps
 1. Log in /admin 
@@ -60,3 +60,7 @@ Also update the return url for successful payment to redirect in
     return_url: 'PUT YOUR REDIRECT URL HERE'
 }
 ```
+
+#Run tests
+
+python manage.py test
