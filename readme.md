@@ -37,14 +37,26 @@ the correct amount
 4. Save the payment record
 5. Then navigate to the /stripe/organization/<your-organization-id/charge/
 6. Use test card details as specified by stripe
-     e.g Card Num - 42424242424242  
+     e.g. 
+      Card Num - 4242424242424242
+      
       Expiry - 12/34
+      
       CVV - 010
 
 Important note
+
 Make sure to add your stripe Test Private Key in the following files
-/stripe_app/checkout.html
-/stripe_app/payment_status.html
+/stripe_app/base.html
 
 e.g   const stripe = Stripe('pk_test..............');
 
+Also update the return url for successful payment to redirect in 
+
+/stripe_app/checkout.html
+
+```javascript
+  confirmParams: {
+    return_url: 'PUT YOUR REDIRECT URL HERE'
+}
+```
