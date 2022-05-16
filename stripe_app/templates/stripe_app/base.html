@@ -5,13 +5,13 @@
         <title>Checkout</title>
     {% endblock title %}
     <script src="https://js.stripe.com/v3/"></script>
+    <script type="application/javascript">
+        const stripe = Stripe('');
+    </script>
 </head>
 <body>
 {% block content %}
 
 {% endblock content %}
-<script type="application/javascript">
-    const stripe = Stripe('pk_test_v3Oipiyzi6b1Uj5krOawjyyh00pQg2HSDr');
-</script>
 </body>
 </html>
