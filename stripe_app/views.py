@@ -32,7 +32,7 @@ def organization_onboarding_charge(request, org_id):
     organization = Organization.objects.filter(org_id=org_id).first()
     if organization:
         _payment = Payment.objects.filter(organization=organization,
-                                         charge_type="ONBOARDING").first()
+                                          charge_type="ONBOARDING").first()
         if not _payment.paid:
             amount = _payment.charge_amount
             return render(request, "stripe_app/checkout.html", {"amount": amount,
