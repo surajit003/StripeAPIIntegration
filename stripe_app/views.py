@@ -33,9 +33,9 @@ def organization_onboarding_charge(request, org_id):
         if not payment.paid:
             amount = payment.charge_amount
             return render(request, "stripe_app/checkout.html", {"amount": amount,
-                                                                     "organization_id": org_id,
-                                                                     "charge_type": "ONBOARDING"
-                                                                     })
+                                                                "organization_id": org_id,
+                                                                "charge_type": "ONBOARDING"
+                                                                })
         else:
             return HttpResponse("Onboarding payment has already been made for this organization")
     else:
@@ -48,8 +48,8 @@ def payment_status(request):
     payment_intent = payment.get_payment_intent(payment_intent_id)
     organization_id = payment_intent["metadata"]["organization_id"]
     charge_type = payment_intent["metadata"]["charge_type"]
-    payment_status = payment_intent["charges"]["data"][0]["paid"]
+    _payment_status = payment_intent["charges"]["data"][0]["paid"]
     Payment.objects.filter(organization__org_id=organization_id, charge_type=charge_type).update(
-        transaction_id=payment_intent_id, paid=payment_status, response=payment_intent
+        transaction_id=payment_intent_id, paid=_payment_status, response=payment_intent
     )
     return render(request, "stripe_app/payment_status.html")
