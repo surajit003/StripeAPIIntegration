@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('stripe_app', '0008_alter_payment_options'),
+        ("stripe_app", "0008_alter_payment_options"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='payment',
-            name='response',
+            model_name="payment",
+            name="response",
             field=models.JSONField(blank=True, null=True),
         ),
     ]

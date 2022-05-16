@@ -7,28 +7,32 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('stripe_app', '0002_organization'),
+        ("stripe_app", "0002_organization"),
     ]
 
     operations = [
         migrations.RenameField(
-            model_name='paymentintent',
-            old_name='amount',
-            new_name='charge_amount',
+            model_name="paymentintent",
+            old_name="amount",
+            new_name="charge_amount",
         ),
         migrations.RenameField(
-            model_name='paymentintent',
-            old_name='uid',
-            new_name='intent_id',
+            model_name="paymentintent",
+            old_name="uid",
+            new_name="intent_id",
         ),
         migrations.RemoveField(
-            model_name='paymentintent',
-            name='payment_organization',
+            model_name="paymentintent",
+            name="payment_organization",
         ),
         migrations.AddField(
-            model_name='paymentintent',
-            name='organization',
-            field=models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, to='stripe_app.organization'),
+            model_name="paymentintent",
+            name="organization",
+            field=models.ForeignKey(
+                default=1,
+                on_delete=django.db.models.deletion.CASCADE,
+                to="stripe_app.organization",
+            ),
             preserve_default=False,
         ),
     ]

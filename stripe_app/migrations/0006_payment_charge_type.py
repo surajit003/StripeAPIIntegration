@@ -6,13 +6,21 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('stripe_app', '0005_payment_delete_paymentintent'),
+        ("stripe_app", "0005_payment_delete_paymentintent"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='payment',
-            name='charge_type',
-            field=models.CharField(blank=True, choices=[('ONBOARDING', 'Onboarding'), ('MAINTENANCE COST', 'Charge for Maintenance')], max_length=100, null=True),
+            model_name="payment",
+            name="charge_type",
+            field=models.CharField(
+                blank=True,
+                choices=[
+                    ("ONBOARDING", "Onboarding"),
+                    ("MAINTENANCE COST", "Charge for Maintenance"),
+                ],
+                max_length=100,
+                null=True,
+            ),
         ),
     ]

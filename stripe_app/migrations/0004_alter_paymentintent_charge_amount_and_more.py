@@ -6,18 +6,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('stripe_app', '0003_rename_amount_paymentintent_charge_amount_and_more'),
+        ("stripe_app", "0003_rename_amount_paymentintent_charge_amount_and_more"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='paymentintent',
-            name='charge_amount',
+            model_name="paymentintent",
+            name="charge_amount",
             field=models.IntegerField(),
         ),
         migrations.AlterField(
-            model_name='paymentintent',
-            name='intent_id',
+            model_name="paymentintent",
+            name="intent_id",
             field=models.CharField(blank=True, max_length=255, null=True),
         ),
     ]
