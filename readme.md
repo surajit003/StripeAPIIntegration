@@ -49,7 +49,9 @@ Important note
 Make sure to add your stripe Test Private Key in the following files
 /stripe_app/base.html
 
-e.g   const stripe = Stripe('pk_test..............');
+```javascript
+const stripe = Stripe('pk_test..............');
+```
 
 Also update the return url for successful payment to redirect in 
 
