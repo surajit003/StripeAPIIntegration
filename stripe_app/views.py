@@ -31,10 +31,10 @@ def client_secret(request):
 def organization_onboarding_charge(request, org_id):
     organization = Organization.objects.filter(org_id=org_id).first()
     if organization:
-        payment = Payment.objects.filter(organization=organization,
+        _payment = Payment.objects.filter(organization=organization,
                                          charge_type="ONBOARDING").first()
-        if not payment.paid:
-            amount = payment.charge_amount
+        if not _payment.paid:
+            amount = _payment.charge_amount
             return render(request, "stripe_app/checkout.html", {"amount": amount,
                                                                 "organization_id": org_id,
                                                                 "charge_type": "ONBOARDING"
